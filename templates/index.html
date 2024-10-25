@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Detection</title>
+</head>
+<body>
+    <h2>Upload Images</h2>
+    <form method="POST" enctype="multipart/form-data" action="/upload">
+        <input type="file" name="files" multiple="multiple" accept="image/*">
+        <input type="submit" value="Upload">
+    </form>
+
+    {% if images %}
+    <h2>Processed Images With Bboxes:</h2>
+    {% for img, bboxes in zip(images, bboxes) %}
+        <pre>{{ bboxes }}</pre>
+        <img src="data:image; base64, {{ img }}" alt="Processed Image">
+    {% endfor %}
+    {% endif %}
+</body>
+</html>

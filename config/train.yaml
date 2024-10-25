@@ -1,0 +1,22 @@
+# The file contains hyperparameters of train, valid, test.
+
+# clearml params
+clearml_enable: False
+clearml_proj_name: "car-detection"
+task_name: "train_model"
+
+# models params
+model_name: "yolo11n.pt"
+dataset_name: "car_dataset"
+save_exp_dir: "runs"
+
+model:
+    epochs: 30
+    batch: 16
+    amp: False
+    patience: 4
+    workers: 0
+    imgsz: 640
+    val: True
+    seed: 0
+    deterministic: True
